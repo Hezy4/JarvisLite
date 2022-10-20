@@ -1,24 +1,10 @@
 # In-Built Jarvis for Iron Man Helmet MK3 Replica
 
 import speech_recognition as sr
-import pyttsx3
+import festival
 import datetime
 
 now = datetime.datetime.now()
-
-engine = pyttsx3.init()
-
-""" RATE"""
-rate = engine.getProperty('rate')
-engine.setProperty('rate', 200)
-
-"""VOLUME"""
-volume = engine.getProperty('volume')
-engine.setProperty('volume',1.0)
-
-"""VOICE"""
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
 
 while True:
     with sr.Microphone() as source:
@@ -100,8 +86,4 @@ while True:
 
             print('You: ' + r.recognize_google(audio))
             print('Jarvis: ' + result)
-            engine.say(result)
-            engine.runAndWait()
-            if sr.UnknownValueError:
-                print('Speak Now:')
-                engine.runAndWait
+            festival.say(result)
