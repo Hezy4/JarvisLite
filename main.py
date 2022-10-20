@@ -4,6 +4,8 @@ import speech_recognition as sr
 import festival
 import datetime
 
+festival.initialize(1, 210000)
+
 now = datetime.datetime.now()
 
 while True:
